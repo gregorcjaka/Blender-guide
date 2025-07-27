@@ -1,0 +1,1248 @@
+
+<!doctype html>
+<html lang="sl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Praktični vodič za Blender, namenjen začetnikom">
+      
+      
+      
+      
+        <link rel="prev" href="../transformacije/">
+      
+      
+        <link rel="next" href="../../materiali/principled-bsdf/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Orodja - Blender vodič za začetnike</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modelirna-orodja" class="md-skip">
+          Skoči na vsebino
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Noga">
+    <a href="../.." title="Blender vodič za začetnike" class="md-header__button md-logo" aria-label="Blender vodič za začetnike" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Blender vodič za začetnike
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Orodja
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Išči" placeholder="Išči" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Iskanje">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Počisti" aria-label="Počisti" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializacija iskanja
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigacija" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Blender vodič za začetnike" class="md-nav__button md-logo" aria-label="Blender vodič za začetnike" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Blender vodič za začetnike
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Uvod
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Osnove modeliranja
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Osnove modeliranja
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uvod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Uvod
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transformacije/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Transformacije
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Orodja
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Orodja
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Kazalo">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Kazalo
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#izbor-komponent-vertex-edge-face" class="md-nav__link">
+    <span class="md-ellipsis">
+      Izbor komponent (Vertex / Edge / Face)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loop-cut-ctrl-r" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loop Cut (Ctrl + R)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extrude-e" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extrude (E)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inset-face-i" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inset Face (I)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bevel-robov-ctrl-b-in-oglisc-ctrl-shift-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bevel robov (Ctrl + B) in oglišč (Ctrl + Shift + B)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#knife-k" class="md-nav__link">
+    <span class="md-ellipsis">
+      Knife (K)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subdivide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subdivide
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merge-m-in-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merge (M) in Cleanup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proportional-editing-o" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proportional Editing (O)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kratka-vaja-1015-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kratka vaja (10–15 min)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tezave-resitve" class="md-nav__link">
+    <span class="md-ellipsis">
+      Težave &amp; rešitve
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rezultat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rezultat
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Materiali
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Materiali
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../materiali/principled-bsdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Principled BSDF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../materiali/vozlisca-in-uv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vozlišča & UV
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Render
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Render
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../render/eevee-vs-cycles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Eevee vs Cycles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../render/osvetljevanje/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Osvetlitev
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../render/kamera-in-render/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kamera in render
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/bpy-uvod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Uvod v bpy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/animacija-kocke/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Animacija kocke
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/piramida-mreza/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Piramida (mreža)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/nosilec-shape-keys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nosilec (shape keys)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Kazalo">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Kazalo
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#izbor-komponent-vertex-edge-face" class="md-nav__link">
+    <span class="md-ellipsis">
+      Izbor komponent (Vertex / Edge / Face)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loop-cut-ctrl-r" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loop Cut (Ctrl + R)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extrude-e" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extrude (E)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inset-face-i" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inset Face (I)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bevel-robov-ctrl-b-in-oglisc-ctrl-shift-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bevel robov (Ctrl + B) in oglišč (Ctrl + Shift + B)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#knife-k" class="md-nav__link">
+    <span class="md-ellipsis">
+      Knife (K)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subdivide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subdivide
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merge-m-in-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merge (M) in Cleanup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proportional-editing-o" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proportional Editing (O)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kratka-vaja-1015-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kratka vaja (10–15 min)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tezave-resitve" class="md-nav__link">
+    <span class="md-ellipsis">
+      Težave &amp; rešitve
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rezultat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rezultat
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div><h1 id="modelirna-orodja">Modelirna Orodja<a class="headerlink" href="#modelirna-orodja" title="Permanent link">¶</a></h1>
+<p><strong>Namen poglavja:</strong> spoznaš ključna modelirna orodja v <em>Edit Mode</em> in osnovne principe, da zgradiš obliko iz preprostih primitivov. Po koncu boš znal/-a smiselno dodajati in odvzemati geometrijo, ustvariti reže/zanke, izrivati ploskve in čistiti topologijo.</p>
+<hr>
+<h2 id="izbor-komponent-vertex-edge-face">Izbor komponent (Vertex / Edge / Face)<a class="headerlink" href="#izbor-komponent-vertex-edge-face" title="Permanent link">¶</a></h2>
+<p>V <em>Edit Mode</em> lahko urejaš:
+- <strong>Vertex Select</strong> – oglišča,
+- <strong>Edge Select</strong> – robove,
+- <strong>Face Select</strong> – ploskve.</p>
+<p>Ikone so v zgornji vrstici Viewporta. Preklapljaš tudi s <strong>1/2/3</strong> (na zgornji številski vrstici tipkovnice).</p>
+<div class="admonition tip">
+<p class="admonition-title">Kombinirani izbor</p>
+<p>Z <strong>Shift</strong> dodajaš/odštevaš iz selekcije.<br>
+Z <strong>Alt + LMB</strong> izbereš <strong>edge loop</strong> (celoten obroč robov) v <em>Edge Select</em>.</p>
+</div>
+<hr>
+<h2 id="loop-cut-ctrl-r">Loop Cut (<code>Ctrl + R</code>)<a class="headerlink" href="#loop-cut-ctrl-r" title="Permanent link">¶</a></h2>
+<p>Doda <strong>zanko robov</strong> (edge loop), s katero nadzoruješ tok geometrije in gostoto ploskev.</p>
+<ol>
+<li>Pritisni <strong>Ctrl+R</strong> (prikaže se predogled z rumeno linijo).  </li>
+<li>Premakni miško na želeno ploskev/rob (Blender predlaga smer).  </li>
+<li>Klikni za potrditev in <strong>povleci</strong> za pomik reza; klik/Enter za zaključek.  </li>
+<li>Z <strong>miškinim koleščkom</strong> pred potrditvijo dodaš več paralelnih rezov.</li>
+</ol>
+<p>Na sliki je prikazana uporaba orodja s štirimi zankami.</p>
+<p><a class="glightbox" href="../../assets/img/loop_cut.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom" data-gallery="orodja"><img _="," alt="Loop Cut – predogled in več rezov" data-gallery="orodja" src="../../assets/img/loop_cut.png" width="500"></a></p>
+<blockquote>
+<p>Loop Cut je osnova za dodajanje detajlov in za “ostrino” pri Subdivision (support loops).</p>
+</blockquote>
+<hr>
+<h2 id="extrude-e">Extrude (<code>E</code>)<a class="headerlink" href="#extrude-e" title="Permanent link">¶</a></h2>
+<p><strong>Izrivanje</strong> ustvari novo geometrijo iz obstoječega izbora.</p>
+<ul>
+<li><strong>E</strong> → povleci z miško (ali vpiši številko).  </li>
+<li><strong>Along Normal</strong> (privzeto pri ploskvah) izrine pravokotno na ploskev.  </li>
+<li><strong>Region vs. Individual</strong>: v meniju <em>Face → Extrude Faces → Extrude Individual Faces</em> izrine vsako ploskev posebej.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Pazi na notranje ploskve</p>
+<p>Če extrudaš <strong>navznoter</strong> in nato prekrivaš ploskve, lahko nastanejo <em>samopreseki</em>. To kasneje povzroča artefakte pri senčenju.</p>
+</div>
+<hr>
+<h2 id="inset-face-i">Inset Face (<code>I</code>)<a class="headerlink" href="#inset-face-i" title="Permanent link">¶</a></h2>
+<p>Naredi <strong>notranji okvir</strong> izbrane ploskve/ploskev – odlično za panel linije, okvirje, mesta za gumbe, itd.</p>
+<ul>
+<li><strong>I</strong> → povleci (nastavi <em>Thickness</em>); z <strong>miškinim koleščkom</strong> dodaš <em>Edge Rail</em>/segmente.  </li>
+<li>Pridružuje se <strong>Extrude</strong>: pogosto narediš najprej <em>Inset</em>, nato <em>Extrude</em> navznoter/ven.</li>
+</ul>
+<p>Na sliki je prikazan rezultat kombinacija uporabe <strong>Inseta</strong> in <strong>Extruda</strong>.</p>
+<p><a class="glightbox" href="../../assets/img/inset_extrude.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom" data-gallery="orodja"><img _="," alt="Inset + Extrude – panel" data-gallery="orodja" src="../../assets/img/inset_extrude.png" width="500"></a></p>
+<hr>
+<h2 id="bevel-robov-ctrl-b-in-oglisc-ctrl-shift-b">Bevel robov (<code>Ctrl + B</code>) in oglišč (<code>Ctrl + Shift + B</code>)<a class="headerlink" href="#bevel-robov-ctrl-b-in-oglisc-ctrl-shift-b" title="Permanent link">¶</a></h2>
+<p>Zaokroži robove (ali “odreže” oglišča) in doda segmente:</p>
+<ul>
+<li><strong>Ctrl + B</strong> v <em>Edge Select</em> – povleci za širino; kolesce za <strong>segmente</strong>.  </li>
+<li><strong>Ctrl + Shift + B</strong> v <em>Vertex Select</em> – <em>Vertex Bevel</em>.  </li>
+<li>Profil zaokrožitve (ostrejši/ploščatejši) lahko spremeniš s <strong>P</strong> (profile).</li>
+</ul>
+<p>Na sliki je prikazana uporaba orodja <strong>Bevel</strong> s štirimi segmenti.</p>
+<p><a class="glightbox" href="../../assets/img/bevel.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom" data-gallery="orodja"><img _="," alt="Bevel robov – 3 segmenti" data-gallery="orodja" src="../../assets/img/bevel.png" width="500"></a></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><em>Bevel</em> na robovih je ključen za realističen “odboj svetlobe” – popolnoma ostri robovi v resnici ne obstajajo.</p>
+</div>
+<hr>
+<h2 id="knife-k">Knife (<code>K</code>)<a class="headerlink" href="#knife-k" title="Permanent link">¶</a></h2>
+<p><strong>Ročno rezanje</strong> mreže (kjer Loop Cut ne zagrabi).</p>
+<ul>
+<li><strong>K</strong> → klikaj po ploskvah (dodaja rezne točke), <strong>Enter</strong> za potrditev.  </li>
+<li><strong>C</strong> omeji rez na <strong>kotne skoke</strong> (npr. 45°), <strong>Z</strong> reže “skozi” (Cut through), <strong>E</strong> začne novo rezanje brez potrditve.</li>
+</ul>
+<p>Na sliki je prikazana uporaba orodja <strong>Knife</strong> za popolnoma poljuben lik.</p>
+<p><a class="glightbox" href="../../assets/img/knife.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom" data-gallery="orodja"><img _="," alt="Knife – rez z omejitvijo kota" data-gallery="orodja" src="../../assets/img/knife.png" width="500"></a></p>
+<hr>
+<h2 id="subdivide">Subdivide<a class="headerlink" href="#subdivide" title="Permanent link">¶</a></h2>
+<p>Doda <strong>rezalne točke</strong> in razdeli izbrano geometrijo na manjše dele.</p>
+<ul>
+<li>Desni klik (RMB) → <strong>Subdivide</strong> → nastavi <strong>Number of Cuts</strong> v spodnjem levem <em>Adjust Last Operation</em> panelu.  </li>
+<li>Uporabi za <strong>enakomerno</strong> dodajanje detaljev na večjem območju.</li>
+</ul>
+<hr>
+<h2 id="merge-m-in-cleanup">Merge (<code>M</code>) in Cleanup<a class="headerlink" href="#merge-m-in-cleanup" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>M</strong> (<em>Merge</em>) združi izbrana oglišča/robove/ploskve v eno točko:</li>
+<li><strong>At Center</strong>, <strong>At Cursor</strong>, <strong>By Distance</strong> (združi preblizu točke – “remove doubles”).  </li>
+<li><strong>Dissolve</strong> vs. <strong>Delete</strong> (<strong>X</strong>):  </li>
+<li><strong>Dissolve</strong> odstrani elemente, a <strong>ohrani</strong> površino (brez lukenj).  </li>
+<li><strong>Delete</strong> odstraní in pusti <strong>luknjo</strong> (ustrezno pri resni odstranitvi geometrije).</li>
+</ul>
+<hr>
+<h2 id="proportional-editing-o">Proportional Editing (<code>O</code>)<a class="headerlink" href="#proportional-editing-o" title="Permanent link">¶</a></h2>
+<p>Omogoča <strong>mehke transformacije</strong> – vpliv pada z razdaljo. Odlično za <em>organics</em> in velike oblike.</p>
+<ul>
+<li>Vključi/izključi z <strong>O</strong> (ikona kroga).  </li>
+<li>Izberi <strong>Falloff</strong> (Smooth/Sharp/…); med transformacijo <strong>miškino kolesce</strong> spreminja polmer vpliva.</li>
+</ul>
+<hr>
+<h2 id="kratka-vaja-1015-min">Kratka vaja (10–15 min)<a class="headerlink" href="#kratka-vaja-1015-min" title="Permanent link">¶</a></h2>
+<ol>
+<li>Dodaj <strong>Cube</strong> in preklopi v <em>Edit Mode</em>.  </li>
+<li>Uporabi <strong>Loop Cut</strong> (2 rezi) za razdelitev na 3 segmente.  </li>
+<li>Izberi zgornje ploskve → <strong>Inset</strong> (nizek <em>Thickness</em>).  </li>
+<li>Naredi <strong>Extrude</strong> navznoter (plitek).  </li>
+<li>Označi sprednje vertikalne robove in dodelaj <strong>Bevel</strong> (2–3 segmenti).  </li>
+<li>Z <strong>Knife</strong> nariši diagonalo na eni strani in <strong>Subdivide</strong> drugo stran za enakomerno gostoto.  </li>
+<li>Po potrebi <strong>Dissolve</strong> preveč robov in <strong>Merge by Distance</strong> za čiščenje.</li>
+</ol>
+<hr>
+<h2 id="tezave-resitve">Težave &amp; rešitve<a class="headerlink" href="#tezave-resitve" title="Permanent link">¶</a></h2>
+<details class="question">
+<summary>Loop Cut ne zagrabi v pravo smer</summary>
+<p>Preveri topologijo – <em>ngoni</em> ali trikotniki lahko prekinejo obroč robov. Poskusi rezati na drugi ploskvi ali uporabi <strong>Knife</strong>.</p>
+</details>
+<details class="question">
+<summary>Po Extrude se pojavi nenavadno senčenje</summary>
+<p>Verjetno so nastale <strong>prekrivne ploskve</strong> (dvojna geometrija). Razveljavi in extrudaj v pravo smer; po potrebi <strong>Merge by Distance</strong>.</p>
+</details>
+<details class="question">
+<summary>Bevel ne naredi ničesar</summary>
+<p>Preveri, da so izbrani <strong>robovi</strong> (ne ploskve) in da je <strong>offset</strong> &gt; 0. Če je geometrija že zelo gosta ali samopresečna, najprej <strong>očisti</strong> mrežo.</p>
+</details>
+<details class="question">
+<summary>Dissolve mi podre obliko</summary>
+<p>Uporabi <strong>Delete</strong> (ne <em>Dissolve</em>) kadar želiš res zvrtati luknjo. <em>Dissolve</em> ohranja površino in le odstrani robove/ločnice.</p>
+</details>
+<hr>
+<h2 id="rezultat">Rezultat<a class="headerlink" href="#rezultat" title="Permanent link">¶</a></h2>
+<p>Znaš uporabljati <strong>Loop Cut, Extrude, Inset, Bevel, Knife, Subdivide, Merge</strong> in razlikovati med <strong>Dissolve</strong> ter <strong>Delete</strong>. Obvladaš tudi <strong>Proportional Editing</strong> za mehke oblike. Pripravljen/-a si za naslednji sklop – <strong>Materiali</strong>.</p>
+<p><a class="md-button md-button--primary" href="../../materiali/principled-bsdf/"><strong>Naprej → Materiali: Principled BSDF</strong></a>
+<a class="md-button" href="../transformacije/">← Nazaj: Transformacije</a></p></div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Zadnja posodobitev">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="27. julij 2025 18:35:14 UTC">27. julij 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.path", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Kopirano v odlo\u017ei\u0161\u010de", "clipboard.copy": "Kopiraj v odlo\u017ei\u0161\u010de", "search.result.more.one": "\u0160e 1 na tej strani", "search.result.more.other": "\u0160e # na tej strani", "search.result.none": "Ni zadetkov", "search.result.one": "1 zadetek", "search.result.other": "# zadetkov", "search.result.placeholder": "Vpi\u0161i iskalni niz", "search.result.term.missing": "Manjka", "select.version": "Izberi razli\u010dico"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

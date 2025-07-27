@@ -1,0 +1,1355 @@
+
+<!doctype html>
+<html lang="sl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Praktični vodič za Blender, namenjen začetnikom">
+      
+      
+      
+      
+        <link rel="prev" href="../eevee-vs-cycles/">
+      
+      
+        <link rel="next" href="../kamera-in-render/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Osvetlitev - Blender vodič za začetnike</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#osvetlitev" class="md-skip">
+          Skoči na vsebino
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Noga">
+    <a href="../.." title="Blender vodič za začetnike" class="md-header__button md-logo" aria-label="Blender vodič za začetnike" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Blender vodič za začetnike
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Osvetlitev
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Išči" placeholder="Išči" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Iskanje">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Počisti" aria-label="Počisti" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializacija iskanja
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigacija" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Blender vodič za začetnike" class="md-nav__button md-logo" aria-label="Blender vodič za začetnike" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Blender vodič za začetnike
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Uvod
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Osnove modeliranja
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Osnove modeliranja
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../osnove-modeliranja/uvod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Uvod
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../osnove-modeliranja/transformacije/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Transformacije
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../osnove-modeliranja/orodja/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Orodja
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Materiali
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Materiali
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../materiali/principled-bsdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Principled BSDF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../materiali/vozlisca-in-uv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vozlišča & UV
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Render
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Render
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eevee-vs-cycles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Eevee vs Cycles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Osvetlitev
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Osvetlitev
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Kazalo">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Kazalo
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vrste-luci-v-blenderju" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vrste luči v Blenderju
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vrste luči v Blenderju">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kljucne-lastnosti-vsake-luci" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ključne lastnosti vsake luči:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uporaba-in-postavitev-luci" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uporaba in postavitev luči
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Uporaba in postavitev luči">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dodajanje-luci" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dodajanje luči:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spreminjanje" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spreminjanje:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hitre-spremembe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hitre spremembe:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#primer-3tockovna-osvetlitev" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primer: 3‑točkovna osvetlitev
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Primer: 3‑točkovna osvetlitev">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-key-light-glavna-luc-najmocnejsa" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Key Light – glavna luč (najmočnejša)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fill-light-zapolni-sence" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Fill Light – zapolni sence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-back-light-rim-iz-ozadja-poudari-robove" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Back Light (Rim) – iz ozadja, poudari robove
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hdri-svetloba-iz-okolja" class="md-nav__link">
+    <span class="md-ellipsis">
+      HDRI – svetloba iz okolja
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HDRI – svetloba iz okolja">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#koraki" class="md-nav__link">
+    <span class="md-ellipsis">
+      Koraki:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vaja-primerjava-luci" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vaja: primerjava luči
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tezave-resitve" class="md-nav__link">
+    <span class="md-ellipsis">
+      Težave &amp; rešitve
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rezultat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rezultat
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kamera-in-render/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kamera in render
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/bpy-uvod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Uvod v bpy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/animacija-kocke/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Animacija kocke
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/piramida-mreza/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Piramida (mreža)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/nosilec-shape-keys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nosilec (shape keys)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Kazalo">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Kazalo
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vrste-luci-v-blenderju" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vrste luči v Blenderju
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vrste luči v Blenderju">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kljucne-lastnosti-vsake-luci" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ključne lastnosti vsake luči:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uporaba-in-postavitev-luci" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uporaba in postavitev luči
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Uporaba in postavitev luči">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dodajanje-luci" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dodajanje luči:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spreminjanje" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spreminjanje:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hitre-spremembe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hitre spremembe:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#primer-3tockovna-osvetlitev" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primer: 3‑točkovna osvetlitev
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Primer: 3‑točkovna osvetlitev">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-key-light-glavna-luc-najmocnejsa" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Key Light – glavna luč (najmočnejša)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fill-light-zapolni-sence" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Fill Light – zapolni sence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-back-light-rim-iz-ozadja-poudari-robove" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Back Light (Rim) – iz ozadja, poudari robove
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hdri-svetloba-iz-okolja" class="md-nav__link">
+    <span class="md-ellipsis">
+      HDRI – svetloba iz okolja
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HDRI – svetloba iz okolja">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#koraki" class="md-nav__link">
+    <span class="md-ellipsis">
+      Koraki:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vaja-primerjava-luci" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vaja: primerjava luči
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tezave-resitve" class="md-nav__link">
+    <span class="md-ellipsis">
+      Težave &amp; rešitve
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rezultat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rezultat
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div><h1 id="osvetlitev">Osvetlitev<a class="headerlink" href="#osvetlitev" title="Permanent link">¶</a></h1>
+<p><strong>Namen poglavja:</strong> spoznati osnovne vrste luči v Blenderju, kako jih pravilno uporabljamo, kakšne so razlike med njimi in kako postavimo osnovno <strong>3‑točkovno osvetlitev</strong>. Naučiš se tudi uporabljati <strong>HDRI slike</strong> za bolj realističen ambient.</p>
+<hr>
+<h2 id="vrste-luci-v-blenderju">Vrste luči v Blenderju<a class="headerlink" href="#vrste-luci-v-blenderju" title="Permanent link">¶</a></h2>
+<p>Blender podpira več vrst luči. Vsaka se uporablja v različnih primerih:</p>
+<table>
+<thead>
+<tr>
+<th>Tip luči</th>
+<th>Opis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Point</strong></td>
+<td>Oddaja svetlobo enakomerno v vse smeri (npr. žarnica)</td>
+</tr>
+<tr>
+<td><strong>Sun</strong></td>
+<td>Oddaja vzporedne žarke iz neskončne razdalje (npr. sonce)</td>
+</tr>
+<tr>
+<td><strong>Spot</strong></td>
+<td>Stožčasta luč – svetloba le v določeno smer (odrska luč)</td>
+</tr>
+<tr>
+<td><strong>Area</strong></td>
+<td>Pravokotna ali kvadratna svetlobna površina – mehkejše sence</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kljucne-lastnosti-vsake-luci">Ključne lastnosti vsake luči:<a class="headerlink" href="#kljucne-lastnosti-vsake-luci" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Power (W)</strong> – jakost svetlobe</li>
+<li><strong>Color</strong> – barva</li>
+<li><strong>Size / Radius</strong> – vpliva na mehkobo sence</li>
+<li><strong>Shadow</strong> – ali luč oddaja sence</li>
+</ul>
+<hr>
+<h2 id="uporaba-in-postavitev-luci">Uporaba in postavitev luči<a class="headerlink" href="#uporaba-in-postavitev-luci" title="Permanent link">¶</a></h2>
+<h3 id="dodajanje-luci">Dodajanje luči:<a class="headerlink" href="#dodajanje-luci" title="Permanent link">¶</a></h3>
+<p><code>Shift + A → Light → [Point / Sun / Spot / Area]</code></p>
+<h3 id="spreminjanje">Spreminjanje:<a class="headerlink" href="#spreminjanje" title="Permanent link">¶</a></h3>
+<p>Izberi luč → <em>Light Properties</em> (ikona žarnice)</p>
+<h3 id="hitre-spremembe">Hitre spremembe:<a class="headerlink" href="#hitre-spremembe" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>G</strong> za premik</li>
+<li><strong>R</strong> za usmerjanje (Spot/Sun)</li>
+<li><strong>S</strong> za povečanje območja (pri Area)</li>
+</ul>
+<hr>
+<h2 id="primer-3tockovna-osvetlitev">Primer: 3‑točkovna osvetlitev<a class="headerlink" href="#primer-3tockovna-osvetlitev" title="Permanent link">¶</a></h2>
+<p>To je klasična metoda iz fotografije in filma.<br>
+Uporablja tri luči za uravnoteženo osvetlitev objekta.</p>
+<h3 id="1-key-light-glavna-luc-najmocnejsa">1. <strong>Key Light</strong> – glavna luč (najmočnejša)<a class="headerlink" href="#1-key-light-glavna-luc-najmocnejsa" title="Permanent link">¶</a></h3>
+<ul>
+<li>Tip: <strong>Area</strong> ali <strong>Sun</strong></li>
+<li>Postavitev: spredaj, malo z boka</li>
+<li>Power: npr. 1000–2000W</li>
+</ul>
+<h3 id="2-fill-light-zapolni-sence">2. <strong>Fill Light</strong> – zapolni sence<a class="headerlink" href="#2-fill-light-zapolni-sence" title="Permanent link">¶</a></h3>
+<ul>
+<li>Tip: <strong>Area</strong> ali <strong>Point</strong></li>
+<li>Postavitev: nasproti Key, šibkejša</li>
+<li>Power: npr. 300–600W</li>
+</ul>
+<h3 id="3-back-light-rim-iz-ozadja-poudari-robove">3. <strong>Back Light (Rim)</strong> – iz ozadja, poudari robove<a class="headerlink" href="#3-back-light-rim-iz-ozadja-poudari-robove" title="Permanent link">¶</a></h3>
+<ul>
+<li>Tip: <strong>Spot</strong> ali <strong>Point</strong></li>
+<li>Postavitev: od zadaj ali strani, višje</li>
+<li>Power: npr. 500–800W</li>
+</ul>
+<p>Spodaj je prikazana osnovna 3 točkovna postavitev. Najmočnejša luč je <strong>Point</strong> in je najbolj oddaljena. Dodani sta še
+<strong>Area</strong> in šibkejša <strong>Point</strong> luč za zapolnitev senc in poudarjanje robov. Ko pogledamo skozi kamero, vidimo ravno
+pravo postavitev.</p>
+<p><a class="glightbox" href="../../assets/img/three_point_setup.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom" data-gallery="osvetlitev"><img alt="3-točkovna osvetlitev" data-gallery="osvetlitev" src="../../assets/img/three_point_setup.png" width="70%"></a></p>
+<div class="admonition tip">
+<p class="admonition-title">Nasvet</p>
+<p>Če sence izgledajo preostre, povečaj <strong>Size</strong> luči (pri Point/Area). Mehkejša svetloba deluje bolj naravno.</p>
+</div>
+<hr>
+<h2 id="hdri-svetloba-iz-okolja">HDRI – svetloba iz okolja<a class="headerlink" href="#hdri-svetloba-iz-okolja" title="Permanent link">¶</a></h2>
+<p><strong>HDRI (High Dynamic Range Image)</strong> je 360° panorama, ki oddaja svetlobo.<br>
+Uporablja se v <strong>World Settings</strong> za naravno svetlobno okolje.</p>
+<h3 id="koraki">Koraki:<a class="headerlink" href="#koraki" title="Permanent link">¶</a></h3>
+<ol>
+<li>Odpri <em>World Properties</em> (ikona zemeljske krogle)</li>
+<li>Klikni <strong>Color → Environment Texture</strong></li>
+<li>Klikni <em>Open</em> → izberi <code>.hdr</code> datoteko (npr. <code>studio_small.hdr</code>)</li>
+<li>Vklopi <strong>Scene World</strong> v Material Preview (če želiš videti HDRI)</li>
+</ol>
+<p>📥 Prenesi HDRI:<br>
+- <a href="https://polyhaven.com/hdris">polyhaven.com</a> (brezplačno)
+- <a href="https://hdrihaven.com">hdrihaven.com</a></p>
+<hr>
+<h2 id="vaja-primerjava-luci">Vaja: primerjava luči<a class="headerlink" href="#vaja-primerjava-luci" title="Permanent link">¶</a></h2>
+<ol>
+<li>Dodaj <strong>UV sfero</strong> in material (npr. kovinski)</li>
+<li>Dodaj <strong>Area Light</strong> spredaj → nastavi <strong>Power = 1500W</strong></li>
+<li>Dodaj <strong>Fill Light</strong> z druge strani → Power = 500W</li>
+<li>Dodaj <strong>Back Light</strong> → rahlo izza → Power = 700W</li>
+<li>Renderiraj v <strong>Cycles in Eevee</strong> (primerjaj mehkobo in sence)</li>
+<li>Odstrani vse luči → dodaj <strong>HDRI</strong> (npr. “sunny field”) → primerjaj rezultat</li>
+</ol>
+<hr>
+<h2 id="tezave-resitve">Težave &amp; rešitve<a class="headerlink" href="#tezave-resitve" title="Permanent link">¶</a></h2>
+<details class="question">
+<summary>Objekt je pretemen</summary>
+<ul>
+<li>Luč je morda prešibka → povečaj <strong>Power</strong></li>
+<li>Ali je svetlobni žarek usmerjen stran? Preveri rotacijo (Spot/Sun)</li>
+<li>HDRI ni dovolj svetel? Dodaj <strong>Strength</strong> v Shader Editor → World</li>
+</ul>
+</details>
+<details class="question">
+<summary>Sence so ostre ali umetne</summary>
+<ul>
+<li>Povečaj <strong>Size</strong> luči (pri Point/Area)</li>
+<li>Uporabi <strong>Soft Shadows</strong> (Eevee → Render Properties)</li>
+</ul>
+</details>
+<details class="question">
+<summary>HDRI ne sveti ali se ne vidi</summary>
+<ul>
+<li>Preveri, da si vklopil <strong>Environment Texture</strong></li>
+<li>V Material Preview vklopi <strong>Scene World</strong></li>
+<li>Morda je HDRI v Shader Editorju narobe povezan (Texture → Background → World Output)</li>
+</ul>
+</details>
+<hr>
+<h2 id="rezultat">Rezultat<a class="headerlink" href="#rezultat" title="Permanent link">¶</a></h2>
+<p>Znaš postaviti in prilagoditi različne luči, razumeš razliko med <strong>Point</strong>, <strong>Sun</strong>, <strong>Spot</strong> in <strong>Area</strong> ter znaš uporabiti <strong>3-točkovno osvetlitev</strong> ali <strong>HDRI okolico</strong> za realistične odboje. Si pripravljen/-a za zadnji korak – <strong>renderiranje</strong>.</p>
+<p><a class="md-button md-button--primary" href="../kamera-in-render/"><strong>Naprej → Kamera &amp; render</strong></a>
+<a class="md-button" href="../eevee-vs-cycles/">← Nazaj: Eevee vs Cycles</a></p></div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Zadnja posodobitev">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="27. julij 2025 18:35:14 UTC">27. julij 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.path", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Kopirano v odlo\u017ei\u0161\u010de", "clipboard.copy": "Kopiraj v odlo\u017ei\u0161\u010de", "search.result.more.one": "\u0160e 1 na tej strani", "search.result.more.other": "\u0160e # na tej strani", "search.result.none": "Ni zadetkov", "search.result.one": "1 zadetek", "search.result.other": "# zadetkov", "search.result.placeholder": "Vpi\u0161i iskalni niz", "search.result.term.missing": "Manjka", "select.version": "Izberi razli\u010dico"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
