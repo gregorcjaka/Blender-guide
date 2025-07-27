@@ -1,0 +1,72 @@
+site_name: Blender vodič za začetnike
+site_description: Praktični vodič za Blender, namenjen začetnikom
+theme:
+  name: material
+  palette:
+    # Dark Mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Dark mode
+      primary: green
+      accent: deep purple
+
+    # Light Mode
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Light mode
+      primary: blue
+      accent: deep orange
+  language: sl
+  features:
+    - navigation.sections
+    - navigation.path
+    - content.code.copy
+    - content.tabs.link
+
+plugins:
+  - search
+  - glightbox
+  - mkdocs-video
+  - git-revision-date-localized:
+      fallback_to_build_date: true
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Uvod: index.md
+  - Osnove modeliranja:
+      - Uvod: osnove-modeliranja/uvod.md
+      - Transformacije: osnove-modeliranja/transformacije.md
+      - Orodja: osnove-modeliranja/orodja.md
+  - Materiali:
+      - Principled BSDF: materiali/principled-bsdf.md
+      - Vozlišča & UV: materiali/vozlisca-in-uv.md
+  - Render:
+      - Eevee vs Cycles: render/eevee-vs-cycles.md
+      - Osvetlitev: render/osvetljevanje.md
+      - Kamera in render: render/kamera-in-render.md
+  - Python:
+      - Uvod v bpy: python/bpy-uvod.md
+      - Animacija kocke: python/animacija-kocke.md
+      - Piramida (mreža): python/piramida-mreza.md
+      - Nosilec (shape keys): python/nosilec-shape-keys.md
+extra:
+  include_files:
+    - assets/blend/Example_wood.blend
